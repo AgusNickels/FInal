@@ -1,0 +1,37 @@
+[
+  {
+    "endpoint": "http://localhost:3000/api/productos",
+    "method": "GET",
+    "title": "Obtener Productos",
+    "desc": "Obtiene todos los productos disponibles en la tienda.",
+    "type": "Productos"
+  },
+  {
+    "endpoint": "http://localhost:3000/api/productos",
+    "method": "POST",
+    "title": "Crear Producto",
+    "desc": "Crea un nuevo producto en el sistema.",
+    "type": "Productos"
+  },
+  {
+    "endpoint": "http://localhost:3000/api/productos",
+    "method": "PUT",
+    "title": "Reemplazar Producto",
+    "desc": "Reemplaza completamente un producto por su ID.",
+    "type": "Productos"
+  },
+  {
+    "endpoint": "http://localhost:3000/api/productos",
+    "method": "PATCH",
+    "title": "Actualizar Producto",
+    "desc": "Actualiza parcialmente los datos de un producto.",
+    "type": "Productos"
+  },
+  {
+    "endpoint": "http://localhost:3000/api/productos",
+    "method": "DELETE",
+    "title": "Eliminar Producto",
+    "desc": "Elimina un producto del sistema por su ID.",
+    "type": "Productos"
+  }
+]
