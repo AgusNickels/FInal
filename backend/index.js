@@ -32,7 +32,7 @@ export function createApp() {
   });
 
   app.listen(PORT, () => {
-    console.log(`🚀 Servidor encendido en http://localhost:${PORT}`);
+    console.log(` Servidor encendido en http://localhost:${PORT}`);
   });
 
   return app;
