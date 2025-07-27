@@ -1,3 +1,4 @@
+import './inicio.css';
 export function Inicio() {
   return (
     <div className="inicio-container">
@@ -8,20 +9,20 @@ export function Inicio() {
         </p>
         <div className="features">
           <div className="feature-card">
-            <h3>Productos para Perros</h3>
+            <h3>🐕 Productos para Perros</h3>
             <p>Juguetes, alimentos y accesorios de calidad para tu mejor amigo.</p>
           </div>
           <div className="feature-card">
-            <h3>Productos para Gatos</h3>
+            <h3>🐱 Productos para Gatos</h3>
             <p>Todo lo necesario para el cuidado y entretenimiento de tu gato.</p>
           </div>
           <div className="feature-card">
-            <h3>Jardinería</h3>
-            <p>macetas y todo para tu jardín perfecto.</p>
+            <h3>🌱 Jardinería</h3>
+            <p>Macetas y todo para tu jardín perfecto.</p>
           </div>
           <div className="feature-card">
-            <h3>🎾 Otras mascotas</h3>
-            <p>Accesorios diversos para todas tus bichitos exoticos.</p>
+            <h3>🐹 Otras mascotas</h3>
+            <p>Accesorios diversos para todas tus mascotas exóticas.</p>
           </div>
         </div>
       </div>

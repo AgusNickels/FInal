@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import './Formulario.css';
 
-export function Crear() {
+export function Formulario() {
   const [form, setForm] = useState({
     nombre: '',
     descripcion: '',

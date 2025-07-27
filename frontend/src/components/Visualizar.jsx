@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './visualizar.css';
 
 export function Visualizar({ categoria }) {
   const categorias = {
@@ -56,7 +57,7 @@ export function Visualizar({ categoria }) {
       }
       
       const result = await response.json();
-      setProductos(result);
+      setProductos(Array.isArray(result) ? result : []);
     } catch (err) {
       console.error('Error al obtener productos:', err);
       setError('Error al cargar los productos. Verifica que el servidor esté funcionando.');
@@ -66,9 +67,13 @@ export function Visualizar({ categoria }) {
     }
   };
 
-  // Buscar productos cuando cambien los filtros
+  // Buscar productos cuando cambien los filtros (con debounce)
   useEffect(() => {
-    buscarProductos();
+    const timer = setTimeout(() => {
+      buscarProductos();
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [filtros]);
 
   // Actualizar categoria_id cuando cambie la categoría
@@ -82,7 +87,7 @@ export function Visualizar({ categoria }) {
   const tieneFiltroslActivos = filtros.nombre !== '' || filtros.precio_lista !== '';
 
   return (
-    <>
+    <div className="visualizar-container">
       <h3 className="visualizar-title">Productos de {categoria}</h3>
       
       <form className="filter-sector" onSubmit={(e) => e.preventDefault()}>
@@ -122,19 +127,19 @@ export function Visualizar({ categoria }) {
       {/* Estado de carga */}
       {loading && (
         <div className="loading-container">
-          <p>Cargando productos...</p>
+          <p>🔄 Cargando productos...</p>
         </div>
       )}
 
       {/* Error */}
       {error && (
         <div className="error-container">
-          <p>{error}</p>
+          <p>❌ {error}</p>
           <button 
             onClick={buscarProductos} 
             className="retry-button"
           >
-            Reintentar
+            🔄 Reintentar
           </button>
         </div>
       )}
@@ -144,48 +149,52 @@ export function Visualizar({ categoria }) {
         <>
           {productos.length === 0 ? (
             <div className="no-products">
-              <p>No se encontraron productos que coincidan con los filtros.</p>
+              <p>😔 No se encontraron productos que coincidan con los filtros.</p>
             </div>
           ) : (
             <>
               <p className="products-count">
-                {productos.length} producto{productos.length !== 1 ? 's' : ''} encontrado{productos.length !== 1 ? 's' : ''}
+                ✅ {productos.length} producto{productos.length !== 1 ? 's' : ''} encontrado{productos.length !== 1 ? 's' : ''}
               </p>
               
-              {productos.map((item) => (
-                <div key={item.id} className="item">
-                  <h3 className="title">{item.nombre}</h3>
-                  <small className="category-badge">Categoría ID: {item.categoria_id}</small>
-                  <p className="description">{item.descripcion}</p>
-                  <div className="product-details">
-                    <span className="price-item">
-                      💰 Precio Lista: ${parseFloat(item.precio_lista).toFixed(2)}
-                    </span>
-                    {item.precio_efectivo && (
+              <div className="products-grid">
+                {productos.map((item) => (
+                  <div key={item.id} className="item">
+                    <h3 className="title">{item.nombre}</h3>
+                    <small className="category-badge">
+                      {Object.keys(categorias).find(key => categorias[key] === item.categoria_id) || 'Sin categoría'}
+                    </small>
+                    <p className="description">{item.descripcion}</p>
+                    <div className="product-details">
                       <span className="price-item">
-                        💳 Precio Efectivo: ${parseFloat(item.precio_efectivo).toFixed(2)}
+                        💰 Precio Lista: ${parseFloat(item.precio_lista || 0).toFixed(2)}
                       </span>
+                      {item.precio_efectivo && parseFloat(item.precio_efectivo) > 0 && (
+                        <span className="price-item">
+                          💳 Precio Efectivo: ${parseFloat(item.precio_efectivo).toFixed(2)}
+                        </span>
+                      )}
+                      <span className="price-item">
+                        📦 Stock: {item.stock || 0} unidades
+                      </span>
+                    </div>
+                    {item.imagen_url && (
+                      <img 
+                        src={item.imagen_url} 
+                        alt={item.nombre} 
+                        className="product-image"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
                     )}
-                    <span className="price-item">
-                      📦 Stock: {item.stock} unidades
-                    </span>
                   </div>
-                  {item.imagen_url && (
-                    <img 
-                      src={item.imagen_url} 
-                      alt={item.nombre} 
-                      className="product-image"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </>
           )}
         </>
       )}
-    </>
+    </div>
   );
 }
