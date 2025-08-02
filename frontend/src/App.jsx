@@ -1,39 +1,34 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import { Inicio } from './components/Inicio';
-import { Perros } from './components/Perro';
-import { Gatos } from './components/gato';
-import { Jardineria } from './components/jardineria';
-import { Otros } from './components/otros';
-import { Contactanos } from './components/contactanos';
-import { Formulario } from './components/Formulario';
-import './style.css'
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Categories from './pages/Categories';
+import About from './pages/About';
+import { ThemeProvider } from './context/ThemeContext';
+import './App.css';
 
-export default function App() {
+function App() {
   return (
-    <>
-      <nav className="navbar">
-        <h1 className="logo">Tienda Chicho's</h1>
-        <ul className="nav-links">
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/perros">Perros</Link></li>
-          <li><Link to="/gatos">Gatos</Link></li>
-          <li><Link to="/jardineria">Jardinería</Link></li>
-          <li><Link to="/otros">Otros</Link></li>
-          <li><Link to="/contactanos">Contáctanos</Link></li>
-          <li><Link to="/Formulario">Formulario</Link></li>
-        </ul>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/perros" element={<Perros />} />
-        <Route path="/gatos" element={<Gatos />} />
-        <Route path="/jardineria" element={<Jardineria />} />
-        <Route path="/otros" element={<Otros />} />
-        <Route path="/contactanos" element={<Contactanos />} />
-        <Route path="/Formulario" element={<Formulario />} />
-        <Route path="*" element={<div className="not-found"><h2>404 - Página no encontrada</h2></div>} />
-      </Routes>
-    </>
-  )
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/productos" element={<Products />} />
+              <Route path="/categorias" element={<Categories />} />
+              <Route path="/sobre-nosotros" element={<About />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
 }
+
+export default App;
