@@ -50,6 +50,8 @@ export function createApp(tiendaChichosModel = TiendaChichosModel) {
     }
   });
 
+  //-------------------//
+
   app.use('/usuarios', usuariosRoutes);
 
   app.get('/', (req, res) => {

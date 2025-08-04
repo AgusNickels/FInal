@@ -1,0 +1,18 @@
+.product-list {
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+.product-list h2 {
+  margin-top: 40px;
+  font-size: 24px;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 6px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
