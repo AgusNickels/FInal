@@ -1,13 +1,8 @@
-import "../pages/NotFound.css";
-
-function NotFound() {
+export default function NotFound() {
   return (
-    <section className="notfound-container">
-      <h2 className="notfound-title">404 - Página no encontrada</h2>
-      <p className="notfound-text">Lo sentimos, la página que buscás no existe.</p>
-      <a href="/" className="notfound-link">Volver al inicio</a>
-    </section>
+    <div style={{ textAlign: "center", padding: "2rem" }}>
+      <h1>404 - Página no encontrada</h1>
+      <p>Lo sentimos, la página que buscas no existe.</p>
+    </div>
   );
 }
-
-export default NotFound;

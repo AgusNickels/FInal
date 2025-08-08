@@ -1,3 +1,4 @@
+// src/components/Filtro.jsx
 import "../components/Filtro.css";
 
 export function Filtro({ nombre, precioMax, onChange, onReset }) {

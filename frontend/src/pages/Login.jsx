@@ -1,52 +1,45 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import "./Login.css";
 
 function Login() {
-  const [formData, setFormData] = useState({ mail: "", password: "" });
-  const [error, setError] = useState(null);
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(null);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(formData);
+    const success = await login({ mail, password });
     if (success) {
-      navigate("/admin");
+      navigate("/productos");
     } else {
-      setError("Credenciales inválidas");
+      alert("Credenciales inválidas");
     }
   };
 
   return (
-    <section style={{ maxWidth: "400px", margin: "50px auto", background: "white", padding: "20px", borderRadius: "8px" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Login Administrador</h2>
+    <main>
+      <h1>Iniciar Sesión</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
-          name="mail"
-          placeholder="Correo electrónico"
-          value={formData.mail}
-          onChange={handleChange}
+          placeholder="Correo"
+          value={mail}
+          onChange={(e) => setMail(e.target.value)}
           required
         />
         <input
           type="password"
-          name="password"
           placeholder="Contraseña"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>}
         <button type="submit">Ingresar</button>
       </form>
-    </section>
+    </main>
   );
 }
 

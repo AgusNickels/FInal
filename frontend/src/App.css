@@ -1,87 +1,63 @@
+/* Variables de color */
+:root {
+  --color-bg: #f9f9f9;
+  --color-text: #333;
+  --primary-color: #004080;
+  --primary-hover: #00aced;
+  --navbar-bg: #222;
+  --navbar-text: #ffffff;
+  --button-bg: #004080;
+  --button-text: #ffffff;
+  --border-color: #ccc;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1e1e1e;
+  --color-text: #f5f5f5;
+  --primary-color: #66b2ff;
+  --primary-hover: #99ccff;
+  --navbar-bg: #121212;
+  --navbar-text: #e0e0e0;
+  --button-bg: #66b2ff;
+  --button-text: #121212;
+  --border-color: #444;
+}
+
+/* Reset básico */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f5f5f5;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
-header, footer {
-  background-color: #00796b;
-  color: white;
-  padding: 15px 20px;
-}
-
-header h1, footer {
-  margin: 0;
-}
-
-nav a {
-  margin-right: 15px;
-  color: white;
+/* Links sin subrayado y heredan color */
+a {
   text-decoration: none;
-  font-weight: bold;
+  color: inherit;
 }
 
-nav a:hover, button:hover {
-  text-decoration: underline;
-}
-
+/* Estilo general de la app */
 main {
-  padding: 20px;
+  padding: 1rem 2rem;
   min-height: 80vh;
 }
 
-form input, form button {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  font-size: 16px;
+h1, h2 {
+  font-weight: 600;
 }
 
-form button {
-  background-color: #00796b;
-  color: white;
+/* Botón base */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
   border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   cursor: pointer;
 }
 
-form button:hover {
-  background-color: #005b4f;
-}
-
-.card {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.card a.whatsapp {
-  display: inline-flex;
-  align-items: center;
-  background-color: #25d366;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: 8px;
-}
-
-.card a.whatsapp img {
-  width: 20px;
-  margin-right: 6px;
+button:hover {
+  opacity: 0.9;
 }

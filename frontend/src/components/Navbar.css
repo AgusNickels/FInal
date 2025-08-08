@@ -1,0 +1,62 @@
+.navbar {
+  background-color: var(--navbar-bg);
+  padding: 1rem 2rem;
+  color: var(--navbar-text);
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--navbar-text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-hover);
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.username {
+  font-size: 0.9rem;
+}
+
+.auth-section button {
+  background-color: transparent;
+  border: 1px solid var(--navbar-text);
+  color: var(--navbar-text);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.auth-section button:hover {
+  background-color: var(--navbar-text);
+  color: var(--navbar-bg);
+}

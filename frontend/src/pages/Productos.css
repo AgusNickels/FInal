@@ -1,20 +1,86 @@
+/* Productos.css */
+
 .productos-page {
-  padding: 30px;
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  color: var(--text-color);
-  background-color: var(--bg-color);
 }
 
 .productos-page h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-.productos-page p {
+/* Loading container específico para productos */
+.productos-page .loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #777;
+  min-height: 300px;
 }
+
+.productos-page .loading-container p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Error container específico para productos */
+.productos-page .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  min-height: 300px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.productos-page .error-container h2 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.productos-page .error-container p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Spinner para productos */
+.productos-page .spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Botón de reintentar */
+.productos-page .retry-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.productos-page .retry-button:hover {
+  background-color: #0056b3;
+}
+
