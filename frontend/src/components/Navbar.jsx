@@ -1,9 +1,8 @@
-// src/components/Navbar.jsx
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import "./Navbar.css";
 import { ToggleTheme } from "./ToggleTheme";
+import "./Navbar.css";
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -25,9 +24,10 @@ function Navbar() {
       </h1>
 
       <nav>
+        {/* Enlaces principales */}
         <Link to="/">Inicio</Link>
 
-        {/* Categorías con rutas dinámicas */}
+        {/* Categorías */}
         {categorias.map((cat) => (
           <Link key={cat.path} to={`/productos/${cat.path}`}>
             {cat.nombre}
@@ -44,11 +44,10 @@ function Navbar() {
         )}
 
         {/* Modo oscuro/claro */}
-        <ToggleTheme />
+        <ToggleTheme className="toggle-theme-btn" />
       </nav>
     </header>
   );
 }
 
 export default Navbar;
-

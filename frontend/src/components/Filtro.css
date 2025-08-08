@@ -1,39 +1,103 @@
-.filtro-container {
+/* Filtro.css */
+.filtros-container {
+  background: var(--secondary-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-color);
+}
+
+.filtros-header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 15px 0;
-  padding: 10px;
-  background: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.filtro-container input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  flex: 1;
-  min-width: 180px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
+.filtros-inputs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.filtro-container input:focus {
-  border-color: #0077cc;
-  outline: none;
+.filtros-inputs input {
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+  background: var(--color-bg);
+  transition: all 0.3s ease;
 }
 
-.filtro-container button {
-  background: #0077cc;
-  color: white;
+.filtros-inputs input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.limpiar-filtros {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
   border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-.filtro-container button:hover {
-  background: #005fa3;
+.limpiar-filtros:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.productos-count {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background: var(--color-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.productos-count strong {
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtros-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filtros-inputs {
+    flex-direction: column;
+  }
+  
+  .filtros-inputs input {
+    min-width: 100%;
+  }
+  
+  .productos-count {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtros-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .limpiar-filtros {
+    width: 100%;
+  }
 }

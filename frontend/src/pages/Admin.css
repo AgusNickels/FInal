@@ -1,21 +1,9 @@
-.admin-page {
+.admin-panel {
+  max-width: 800px;
+  margin: auto;
   padding: 2rem;
 }
-
-.admin-page h1 {
-  margin-bottom: 1rem;
-}
-
-.admin-page table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.admin-page th, .admin-page td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-}
-
-.admin-page th {
-  background-color: var(--color-bg-alt, #f0f0f0);
+.admin-panel h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
 }

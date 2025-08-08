@@ -1,21 +1,21 @@
-/* EditarProducto.css */
-
 main {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background-color: var(--color-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 main h1 {
   text-align: center;
-  color: #333;
+  color: var(--color-text);
   margin-bottom: 2rem;
 }
 
-/* Loading container para editar producto */
+/* Loading */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -24,26 +24,29 @@ main h1 {
   padding: 3rem;
   text-align: center;
   min-height: 200px;
+  color: var(--color-text);
 }
 
-.loading-container p {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #666;
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
 }
 
-/* Error container para editar producto */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Errores */
 .error-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-  text-align: center;
-  min-height: 200px;
-  background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid #dc3545;
+  padding: 2rem;
   border-radius: 8px;
+  text-align: center;
 }
 
 .error-container h2 {
@@ -52,131 +55,62 @@ main h1 {
 }
 
 .error-container p {
-  color: #856404;
-  margin-bottom: 1.5rem;
+  color: var(--color-text);
 }
 
-/* Spinner principal */
-.spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #ffc107;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Alertas para editar producto */
-.alert {
-  padding: 15px 20px;
-  margin-bottom: 1.5rem;
-  border-radius: 6px;
-  font-weight: 500;
-  text-align: center;
-  animation: slideDown 0.3s ease-out;
-}
-
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-.alert-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Formulario de edición */
+/* Formulario */
 form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Inputs y select */
 input, select {
   padding: 12px 16px;
-  border: 2px solid #dee2e6;
+  border: 2px solid var(--border-color);
   border-radius: 6px;
   font-size: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   transition: all 0.3s ease;
-  background-color: white;
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #ffc107;
-  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
 }
 
-input:disabled, select:disabled {
-  background-color: #e9ecef;
-  opacity: 0.7;
-  cursor: not-allowed;
-  color: #6c757d;
-}
-
-/* Botón de guardar cambios */
+/* Botón Guardar */
 button[type="submit"] {
-  background-color: #ffc107;
-  color: #212529;
-  border: none;
+  background-color: var(--primary-color);
+  color: white;
   padding: 14px 24px;
   border-radius: 6px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button[type="submit"]:hover:not(:disabled) {
-  background-color: #e0a800;
-  transform: translateY(-1px);
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
 }
 
 button[type="submit"]:disabled {
   background-color: #6c757d;
-  color: white;
   cursor: not-allowed;
-  transform: none;
 }
 
-button[type="submit"].loading {
-  background-color: #6c757d;
-  color: white;
-}
-
-/* Botón de volver */
+/* Botón Volver */
 .back-button {
   background-color: #6c757d;
   color: white;
-  border: none;
   padding: 12px 24px;
   border-radius: 6px;
-  cursor: pointer;
   font-size: 1rem;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -184,18 +118,12 @@ button[type="submit"].loading {
   background-color: #545b62;
 }
 
-/* Spinner pequeño para botón */
-.spinner-small {
-  border: 2px solid transparent;
-  border-top: 2px solid #ffffff;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s linear infinite;
-  margin-right: 8px;
+/* Animación de fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   main {
     margin: 1rem;

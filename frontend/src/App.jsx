@@ -1,8 +1,8 @@
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // 🔹 Importamos el footer
 import Home from "./pages/Home";
 import Productos from "./pages/Productos";
 import Login from "./pages/Login";
@@ -18,6 +18,7 @@ function App() {
       {/* Menú de navegación */}
       <Navbar />
 
+      {/* Contenido principal */}
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,6 +42,9 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
+      {/* Footer en todas las páginas */}
+      <Footer />
     </Router>
   );
 }

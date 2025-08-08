@@ -1,12 +1,51 @@
 .product-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 12px;
-  max-width: 250px;
-  background-color: #fff;
-  text-align: center;
+  background-color: var(--secondary-color) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
+
+.product-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+}
+
 .product-card img {
-  max-width: 100%;
-  border-radius: 8px;
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+}
+
+.product-card h3 {
+  font-size: 1.1rem !important;
+  margin: 0.5rem 1rem 0.3rem !important;
+  color: var(--primary-color) !important;
+}
+
+.product-card p {
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  color: var(--color-text) !important;
+  margin: 0.2rem 1rem;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #25D366;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.whatsapp-btn:hover {
+  background-color: #1ebc59;
 }

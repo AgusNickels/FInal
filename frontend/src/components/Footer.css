@@ -1,0 +1,23 @@
+.app-footer {
+  background-color: var(--secondary-color);
+  color: var(--color-text);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--primary-color);
+  margin-top: 2rem;
+}
+
+.app-footer p {
+  margin: 0.3rem 0;
+}
+
+.app-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: var(--primary-hover);
+}
