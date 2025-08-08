@@ -1,3 +1,7 @@
+Para correr el Backenda: npm run dev:mysql
+Para correr el Frontend: npm run dev
+Para correr el Swagger: npm run dev
+
 Para ingresar al adim:
 
 - Usuario: agus.nickels95@gmail.com
